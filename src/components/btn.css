@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  background-color: #000000;
+}
+
+.entryBtn {
+  border: 2px solid rgb(255, 204, 74);
+  background-color: black;
+  color: rgb(255, 204, 74);
+  border-radius: 20px;
+  height: 80px;
+  width: 170px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 3D Shadow for Raised Effect */
+  box-shadow: 0 8px 0 rgb(255, 204, 74), 0 8px 15px rgba(255, 204, 74, 0.5);
+  position: relative;
+}
+
+/* Hover - Makes it Look Like It's Floating */
+.entryBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 0 rgb(255, 204, 74), 0 12px 18px rgba(255, 204, 74, 0.5);
+}
+
+/* Active (Press) - Makes It Look Like It's Pressed Down */
+.entryBtn:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 rgb(255, 204, 74), 0 4px 10px rgba(255, 204, 74, 0.3);
+}
+
+/* SVG Sparkle Animation */
+svg {
+  overflow: visible !important;
+}
+
+.sparkle path {
+  fill: currentColor;
+  stroke: currentColor;
+  transition: fill 0.3s ease-in-out, stroke 0.3s ease-in-out;
+}
+
+/* Sparkle Effect on Hover */
+.entryBtn:hover .sparkle path {
+  animation: sparkleAnimation 0.6s ease-in-out infinite alternate;
+  fill: rgb(255, 204, 74);
+  stroke: rgb(255, 204, 74);
+}
+
+/* Sparkle Animation */
+@keyframes sparkleAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
