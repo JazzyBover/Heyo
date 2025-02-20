@@ -1,92 +1,117 @@
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: sans-serif;
-  background-color: #000000;
+  align-items: center;
+  height: 100vh;
+  background-image: url(./assets/bcat.jpg);
+
 }
 
-.entryBtn {
-  border: 2px solid rgb(255, 204, 74);
-  background-color: black;
-  color: rgb(255, 204, 74);
-  border-radius: 20px;
-  height: 80px;
-  width: 170px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* 3D Flipping Card Container */
+.flip-card {
+  color: rgb(199, 199, 240);
+  width: 500px;
+  height: 300px;
+  perspective: 1000px;
+  /* Depth effect */
+}
 
-  /* 3D Shadow for Raised Effect */
-  box-shadow: 0 8px 0 rgb(255, 204, 74), 0 8px 15px rgba(255, 204, 74, 0.5);
+/* Inner Card with Flipping Effect */
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
   position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
 
-/* Hover - Makes it Look Like It's Floating */
-.entryBtn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 0 rgb(255, 204, 74), 0 12px 18px rgba(255, 204, 74, 0.5);
+/* Flip on Hover */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-/* Active (Press) - Makes It Look Like It's Pressed Down */
-.entryBtn:active {
-  transform: translateY(4px);
-  box-shadow: 0 4px 0 rgb(255, 204, 74), 0 4px 10px rgba(255, 204, 74, 0.3);
+/* Front & Back of the Card */
+.flip-card-front,
+.flip-card-back {
+
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(93, 78, 78, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  backface-visibility: hidden;
 }
 
-/* SVG Sparkle Animation */
-svg {
-  overflow: visible !important;
+/* Back Side of the Card */
+.flip-card-back {
+  transform: rotateY(180deg);
 }
 
-.sparkle path {
-  fill: currentColor;
-  stroke: currentColor;
-  transition: fill 0.3s ease-in-out, stroke 0.3s ease-in-out;
+/* Balloons Animation */
+.balloons {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
 }
 
-/* Sparkle Effect on Hover */
-.entryBtn:hover .sparkle path {
-  animation: sparkleAnimation 0.6s ease-in-out infinite alternate;
-  fill: rgb(255, 204, 74);
-  stroke: rgb(255, 204, 74);
+.balloon {
+  width: 50px;
+  height: 60px;
+  background: #beb8b8;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -30px;
+  animation: float 5s infinite ease-in-out;
 }
 
-/* Sparkle Animation */
-@keyframes sparkleAnimation {
+.b1 {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.b2 {
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.b3 {
+  left: 80%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
   0% {
-    transform: scale(1);
-    opacity: 0.7;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-900px) scale(1.1);
+    opacity: 0.8;
   }
 
   100% {
-    transform: scale(1.2);
-    opacity: 1;
+    transform: translateY(-900px) scale(1.2);
+    opacity: 0;
   }
 }
 
-p {
-  color: azure;
+.title {
+  margin-top: 30px;
 }
 
-.glass {
-
-  background-color: rgb(186, 172, 172);
-  backdrop-filter: blur(2px);
-  border-radius: 10px;
-  height: 500px;
-  width: 400px;
-  color: beige;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: sans-serif;
-
+.text {
+  margin-top: 20px;
 }

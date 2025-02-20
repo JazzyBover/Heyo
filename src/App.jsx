@@ -1,26 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
-import './App.css';
-import Home from './components/Home';
-import Card from './components/Card';
+import React from "react";
+import BirthdayCard from "./components/BirthdayCard";
+import './App.css'
 
 
-const App = () => {
-
+function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-
-          <Route path="/" element={<Home />} />
-          <Route path="/card" element={<Card />} />
-
-        </Routes>
-      </Router>
-    </>
+    <div>
+      <BirthdayCard />
+    </div>
   );
-};
-
-
+}
 
 export default App;
