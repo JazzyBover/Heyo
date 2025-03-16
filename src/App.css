@@ -4,7 +4,7 @@ body {
   align-items: center;
   height: 100vh;
   background-image: url(./assets/bcat.jpg);
-
+  overflow: hidden;
 }
 
 /* 3D Flipping Card Container */
